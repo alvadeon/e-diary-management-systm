@@ -1,0 +1,52 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block main %}
+
+
+<div class="row">
+    <div class="radius-15 col-xl-5 mx-auto">
+
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <h4 class="mb-0">Add Notes</h4>
+                </div>
+                <hr>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Category Name</label>
+                        <select name="category" class="form-control" required>
+                            <option value="">Select Category</option>
+                            {% for i in category %}
+                            <option value="{{i.id}}">{{i.categoryName}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Notes Title</label>
+                        <input type="text" name="noteTitle" placeholder="Enter Notes Title"
+                               class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Notes Description</label>
+                        <textarea name="noteDescription" placeholder="Enter Notes Description"
+                                  class="form-control" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">upload</label>
+                        <input type="file" name="image" placeholder=""
+                                  class="form-control" required>
+                    </div>
+                    
+
+                  
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary px-5">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

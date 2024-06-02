@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    {% if img_obj %}
+        <h2>Uploaded Image</h2>
+        <img src="{{ img_obj.image.url }}" alt="Uploaded Image">
+    {% else %}
+        <p>No image uploaded yet.</p>
+    {% endif %}
+{% endblock %}
